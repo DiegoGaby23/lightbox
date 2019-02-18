@@ -1,0 +1,106 @@
+$black: #000000;
+$blue: #0000FF;
+$green: #1d990d;
+$red: #FF0000;
+$white: #FFFFFF;
+$silver: #c0c0c0;
+/* Début du css 
+=====================*/
+
+body {
+    position: relative;
+    background-color: $silver;
+    html {
+        display: block;
+        position: relative;
+    }
+    main {
+        height: 100%;
+        background-color: $black;
+        position: relative;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+/* Articles principaux 
+=====================*/
+
+main {
+    position: absolute;
+    article {
+        display: block;
+        height: 100px;
+        width: 100%;
+        position: absolute;
+        padding-top: 1em;
+        overflow: scroll;
+        transition: top 1s;
+        top: -100vh;
+    }
+    h1 {
+        margin-left: 41px;
+        color: $white;
+        padding: 12px;
+    }
+}
+
+/* Articles cible 
+=====================*/
+
+main {
+    article:target {
+        top: 0;
+    }
+    article [data-previous] {
+        animation: close is forwards;
+    }
+}
+
+/* Styles de navigation et de contenu 
+=====================================*/
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: $white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    a {
+        color: $green;
+        padding: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+}
+
+#p1 {
+    background: $green;
+}
+
+#p2 {
+    background: $blue;
+}
+
+#p3 {
+    background: $red;
+}
+
+/* Effet de sortie
+=========================*/
+
+@keyframes close {
+    0% {
+        top: 0;
+    }
+    99% {
+        top: 100vh;
+    }
+    100% {
+        top: -100vh;
+    }
+}
